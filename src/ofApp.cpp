@@ -13,6 +13,18 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
+    int xPos = 0;
+    int yPos = 0;
+    ofSetColor(ofColor::green);
+    // Draw body
+    ofDrawRectangle(xPos, yPos+10,60,10);
+    // Draw roof
+    ofDrawLine(10,10,20,0);
+    ofDrawLine(20,0,40,0);
+    ofDrawLine(40,0,50,10);
+    // Draw tires
+    ofDrawCircle(15,25,5);
+    ofDrawCircle(45,25,5);
 }
 
 //--------------------------------------------------------------
