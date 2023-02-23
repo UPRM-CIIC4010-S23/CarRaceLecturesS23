@@ -9,15 +9,21 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 
+    if (((car1.getDirection() == 1) && (car1.getXPos() + 60 >= ofGetWidth())) ||
+        ((car1.getDirection() == -1) && (car1.getXPos() <= 0))) { // Hardcoded width bad idea
+        car1.setDirection(-1 * car1.getDirection());
+    } else {
+        car1.move(car1.getSpeed() * car1.getDirection(), 0);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-    Car c1(0,0);
-    c1.draw();
-    Car c2(100,100);
-    c2.draw();
+    // Car c1(0,0);
+    this->car1.draw();
+    // Car c2(100,100);
+    // c2.draw();
 
 }
 

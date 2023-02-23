@@ -4,6 +4,12 @@
 
 using namespace std;
 
+void Car::move(int deltaX, int deltaY){
+    this->xPos += deltaX;
+    this->yPos += deltaY;
+}
+
+
 void Car::draw() {
 
     int xPos = this->xPos;
