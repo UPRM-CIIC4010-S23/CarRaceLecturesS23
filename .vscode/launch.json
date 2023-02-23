@@ -36,7 +36,8 @@
                     }
                 ],
                 "program": "${workspaceRoot}/bin/${workspaceFolderBasename}_debug"
-            }
+            },
+            "preLaunchTask": "Build DEBUG"
         },
         {
             "name": "C++ Attach",
@@ -66,7 +67,8 @@
                         "ignoreFailures": true
                     }
                 ]
-            }
+            },
+            "preLaunchTask": "Build DEBUG"
         }
     ]
 }
