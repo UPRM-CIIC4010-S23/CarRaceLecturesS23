@@ -1,5 +1,6 @@
 #pragma once
 
+#include <vector>
 #include "ofMain.h"
 #include "Car.h"
 
@@ -22,6 +23,9 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		Car car1 = Car(0,0,2,1);
+		// Car car1 = Car(0,0,2,1);
+		static const int numCars = 20;
+		vector<Car> raceCars;
+		bool winnerFound;
 		
 };

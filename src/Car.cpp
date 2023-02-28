@@ -9,12 +9,15 @@ void Car::move(int deltaX, int deltaY){
     this->yPos += deltaY;
 }
 
-
 void Car::draw() {
+    this->draw(this->getColor());
+}
+
+void Car::draw(ofColor c) {
 
     int xPos = this->xPos;
     int yPos = this->yPos;
-    ofSetColor(ofColor::green);
+    ofSetColor(c);
     // Draw body
     ofDrawRectangle(xPos, yPos+10,60,10);
     // Draw roof
@@ -24,5 +27,9 @@ void Car::draw() {
     // Draw tires
     ofDrawCircle(xPos+15,yPos+25,5);
     ofDrawCircle(xPos+45,yPos+25,5);
+
+    //Draw car number
+    ofSetColor(ofColor::black);
+    ofDrawBitmapString(this->getCarNo(), xPos+25,yPos+20);
 
 }
