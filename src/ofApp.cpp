@@ -20,20 +20,20 @@ void ofApp::update(){
 
     if (winnerFound) return;
 
-    for (int i = 0; i < raceCars.size(); i++) {
-        if (((raceCars[i].getDirection() == 1) && (raceCars[i].getXPos() + 60 >= ofGetWidth())) ||
-            ((raceCars[i].getDirection() == -1) && (raceCars[i].getXPos() <= 0))) { // Hardcoded width bad idea
-            raceCars[i].setDirection(-1 * raceCars[i].getDirection());
-            raceCars[i].addLap();
+    for (auto it=raceCars.begin(); it != raceCars.end(); it++) {
+        if (((it->getDirection() == 1) && (it->getXPos() + 60 >= ofGetWidth())) ||
+            ((it->getDirection() == -1) && (it->getXPos() <= 0))) { // Hardcoded width bad idea
+            it->setDirection(-1 * it->getDirection());
+            it->addLap();
         } else {
-            int distance = ofRandom(1) * raceCars[i].getSpeed() * raceCars[i].getDirection();
-            raceCars[i].move(distance, 0);
-            raceCars[i].addMileage(abs(distance));
+            int distance = ofRandom(1) * it->getSpeed() * it->getDirection();
+            it->move(distance, 0);
+            it->addMileage(abs(distance));
         }
     }
 
-    for (int i=0; i<raceCars.size(); i++) {
-        if (raceCars[i].getLaps() == 2) {
+    for (auto it=raceCars.begin(); it != raceCars.end(); it++) {
+        if (it->getLaps() == 2) {
             winnerFound = true;
             break;
         }
@@ -44,18 +44,18 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-    for (int i=0; i<raceCars.size(); i++) {
-        this->raceCars[i].draw();
+    for (auto it=raceCars.begin(); it != raceCars.end(); it++) {
+        it->draw();
     }
 
-    int leaderPos = 0;
-    for (int i=1; i<raceCars.size(); i++) {
-        if (raceCars[i].getMileage() > raceCars[leaderPos].getMileage()) {
-            leaderPos = i;
+    auto leaderPos = raceCars.begin();
+    for (auto it=raceCars.begin(); it != raceCars.end(); it++) {
+        if (it->getMileage() > leaderPos->getMileage()) {
+            leaderPos = it;
         }
     }
 
-    raceCars[leaderPos].draw(ofColor::orange);
+    leaderPos->draw(ofColor::orange);
 
 }
 
