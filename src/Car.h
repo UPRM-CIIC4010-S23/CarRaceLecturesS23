@@ -42,7 +42,7 @@ class Car {
         void addMileage(int delta) { mileage += delta; }
 
         void move(int deltaX, int deltaY);
-        void draw();
-        void draw(ofColor c);
+        virtual void draw();
+        virtual void draw(ofColor c);
 
 };

@@ -1,18 +1,25 @@
 #include "ofApp.h"
 #include "Car.h"
+#include "PoliceCar.h"
 
 //--------------------------------------------------------------
-void ofApp::setup(){
+void ofApp::setup() {
 
     winnerFound = false;
-    int laneY = 0;
+    int laneY = 5;
     int carNumber = 0;
     for (int i=0; i<numCars; i++) {
-        raceCars.push_back(Car(carNumber, 0,laneY,5,1, ofColor::green));
-        laneY += 35;
-        carNumber++;
-    }
+        if (carNumber % 2 == 0) {
+            raceCars.push_back(new PoliceCar(carNumber, 0,laneY,5,1, ofColor::green));
+            laneY += 35;
+            carNumber++;
+        } else {
+            raceCars.push_back(new Car(carNumber, 0,laneY,5,1, ofColor::green));
+            laneY += 35;
+            carNumber++;    
+        }
 
+    }
 }
 
 //--------------------------------------------------------------
@@ -21,19 +28,19 @@ void ofApp::update(){
     if (winnerFound) return;
 
     for (auto it=raceCars.begin(); it != raceCars.end(); it++) {
-        if (((it->getDirection() == 1) && (it->getXPos() + 60 >= ofGetWidth())) ||
-            ((it->getDirection() == -1) && (it->getXPos() <= 0))) { // Hardcoded width bad idea
-            it->setDirection(-1 * it->getDirection());
-            it->addLap();
+        if ((((*it)->getDirection() == 1) && ((*it)->getXPos() + 60 >= ofGetWidth())) ||
+            (((*it)->getDirection() == -1) && ((*it)->getXPos() <= 0))) { // Hardcoded width bad idea
+            (*it)->setDirection(-1 * (*it)->getDirection());
+            (*it)->addLap();
         } else {
-            int distance = ofRandom(1) * it->getSpeed() * it->getDirection();
-            it->move(distance, 0);
-            it->addMileage(abs(distance));
+            int distance = ofRandom(1) * (*it)->getSpeed() * (*it)->getDirection();
+            (*it)->move(distance, 0);
+            (*it)->addMileage(abs(distance));
         }
     }
 
     for (auto it=raceCars.begin(); it != raceCars.end(); it++) {
-        if (it->getLaps() == 2) {
+        if ((*it)->getLaps() == 2) {
             winnerFound = true;
             break;
         }
@@ -44,18 +51,20 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
+    ofSetBackgroundColor(ofColor::white);
+    
     for (auto it=raceCars.begin(); it != raceCars.end(); it++) {
-        it->draw();
+        (*it)->draw();
     }
 
     auto leaderPos = raceCars.begin();
     for (auto it=raceCars.begin(); it != raceCars.end(); it++) {
-        if (it->getMileage() > leaderPos->getMileage()) {
+        if ((*it)->getMileage() > (*leaderPos)->getMileage()) {
             leaderPos = it;
         }
     }
 
-    leaderPos->draw(ofColor::orange);
+    (*leaderPos)->draw(ofColor::orange);
 
 }
 

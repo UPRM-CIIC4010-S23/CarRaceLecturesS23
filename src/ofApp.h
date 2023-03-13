@@ -1,6 +1,6 @@
 #pragma once
 
-#include <list>
+#include <vector>
 #include "ofMain.h"
 #include "Car.h"
 
@@ -25,7 +25,7 @@ class ofApp : public ofBaseApp{
 
 		// Car car1 = Car(0,0,2,1);
 		static const int numCars = 20;
-		list<Car> raceCars;
+		vector<Car*> raceCars;
 		bool winnerFound;
 		
 };
