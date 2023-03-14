@@ -1,11 +1,11 @@
 #pragma once
-
+#include "ofMain.h"
 #include "Vehicle.h"
 
-class Car : public Vehicle {
+class Truck : public Vehicle {
 
     // private:
-    // int carNo;
+    // int TruckNo;
     // int xPos;
     // int yPos;
     // int speed; // Pixels per time slice (tick)
@@ -15,9 +15,9 @@ class Car : public Vehicle {
     // ofColor color;
 
     public:
-        Car(int carNo, int xPos, int yPos, int speed, int direction, ofColor c):
-        Vehicle(carNo, xPos, yPos, speed, direction, c) {
-            // this->carNo = carNo;
+        Truck(int TruckNo, int xPos, int yPos, int speed, int direction, ofColor c):
+        Vehicle(TruckNo, xPos, yPos, speed, direction, c) {
+            // this->TruckNo = TruckNo;
             // this->xPos = xPos;
             // this->yPos = yPos;
             // this->speed = speed;
@@ -28,7 +28,7 @@ class Car : public Vehicle {
         }
 
         // // Seters and Getters
-        // int getCarNo() const { return carNo; }
+        // int getTruckNo() const { return TruckNo; }
         // int getXPos() const { return xPos; }
         // int getYPos() const { return yPos; }
         // int getSpeed() const { return speed; }

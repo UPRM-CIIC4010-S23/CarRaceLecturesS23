@@ -1,6 +1,7 @@
 #include "ofApp.h"
 #include "Car.h"
 #include "PoliceCar.h"
+#include "Truck.h"
 
 //--------------------------------------------------------------
 void ofApp::setup() {
@@ -9,16 +10,15 @@ void ofApp::setup() {
     int laneY = 5;
     int carNumber = 0;
     for (int i=0; i<numCars; i++) {
-        if (carNumber % 2 == 0) {
+        if (carNumber % 3 == 0) {
             raceCars.push_back(new PoliceCar(carNumber, 0,laneY,5,1, ofColor::green));
-            laneY += 35;
-            carNumber++;
+        } else if (carNumber % 3 == 1) {
+            raceCars.push_back(new Car(carNumber, 0,laneY,5,1, ofColor::green));    
         } else {
-            raceCars.push_back(new Car(carNumber, 0,laneY,5,1, ofColor::green));
-            laneY += 35;
-            carNumber++;    
+            raceCars.push_back(new Truck(carNumber, 0,laneY,5,1, ofColor::green));
         }
-
+        laneY += 35;
+        carNumber++;
     }
 }
 

@@ -2,7 +2,7 @@
 
 #include <vector>
 #include "ofMain.h"
-#include "Car.h"
+#include "Vehicle.h"
 
 class ofApp : public ofBaseApp{
 
@@ -25,7 +25,7 @@ class ofApp : public ofBaseApp{
 
 		// Car car1 = Car(0,0,2,1);
 		static const int numCars = 20;
-		vector<Car*> raceCars;
+		vector<Vehicle*> raceCars;
 		bool winnerFound;
 		
 };
