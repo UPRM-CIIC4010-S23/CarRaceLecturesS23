@@ -2,6 +2,7 @@
 #include "Car.h"
 #include "PoliceCar.h"
 #include "Truck.h"
+#include "Frog.h"
 
 //--------------------------------------------------------------
 void ofApp::setup() {
@@ -10,11 +11,13 @@ void ofApp::setup() {
     int laneY = 5;
     int carNumber = 0;
     for (int i=0; i<numCars; i++) {
-        if (carNumber % 3 == 0) {
+        if (carNumber % 4 == 0) {
             raceCars.push_back(new PoliceCar(carNumber, 0,laneY,5,1, ofColor::green));
-        } else if (carNumber % 3 == 1) {
+        } else if (carNumber % 4 == 1) {
             raceCars.push_back(new Car(carNumber, 0,laneY,5,1, ofColor::green));    
-        } else {
+        } else if (carNumber % 4 == 2) {
+            raceCars.push_back(new Frog(carNumber, 0,laneY,5,1, ofColor::green));    
+         } else {
             raceCars.push_back(new Truck(carNumber, 0,laneY,5,1, ofColor::green));
         }
         laneY += 35;

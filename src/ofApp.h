@@ -25,7 +25,7 @@ class ofApp : public ofBaseApp{
 
 		// Car car1 = Car(0,0,2,1);
 		static const int numCars = 20;
-		vector<Vehicle*> raceCars;
+		vector<Raceable*> raceCars;
 		bool winnerFound;
 		
 };

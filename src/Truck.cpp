@@ -32,6 +32,6 @@ void Truck::draw(ofColor c) {
 
     //Draw Truck number
     ofSetColor(ofColor::black);
-    ofDrawBitmapString(this->getVehicleNo(), xPos+25,yPos+20);
+    ofDrawBitmapString(this->getNumber(), xPos+25,yPos+20);
 
 }
