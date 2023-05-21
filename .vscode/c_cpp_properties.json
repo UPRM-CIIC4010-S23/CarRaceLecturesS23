@@ -6,7 +6,7 @@
                 "/usr/include",
                 "/usr/local/include",
                 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/",
-                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/4.2.1",
+                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1",
                 "${workspaceRoot}/../../../libs/openFrameworks",
                 "${workspaceRoot}/../../../libs/openFrameworks/3d",
                 "${workspaceRoot}/../../../libs/openFrameworks/app",
@@ -33,7 +33,8 @@
                 "${workspaceRoot}/../../../libs/rtAudio/include",
                 "${workspaceRoot}/../../../libs/tess2/include",
                 "${workspaceRoot}/../../../libs/uriparser/include",
-                "${workspaceRoot}/../../../libs/utf8/include"
+                "${workspaceRoot}/../../../libs/utf8/include",
+                "/Users/bvelez/Developer/openFrameeworks/libs/openFrameworks"
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
@@ -48,13 +49,13 @@
                     "${workspaceRoot}/../../../libs/openFrameworks"
                 ]
             },
-            "intelliSenseMode": "clang-x64",
+            "intelliSenseMode": "macos-clang-x64",
             "macFrameworkPath": [
                 "/System/Library/Frameworks",
                 "/Library/Frameworks"
             ],
-            "compilerPath": "/usr/local/bin/gcc-8",
-            "cStandard": "c11",
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "c17",
             "cppStandard": "c++17",
             "configurationProvider": "ms-vscode.makefile-tools"
         },
